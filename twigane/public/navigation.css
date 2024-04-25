@@ -1,0 +1,153 @@
+:root {
+    --primary-color: #4EA685;
+    --secondary-color: #57B894;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #efefef;
+    --gray-2: #757575;
+
+    --facebook-color: #4267B2;
+    --google-color: #DB4437;
+    --twitter-color: #1DA1F2;
+    --insta-color: #E1306C;
+}
+html{
+    scroll-behavior: smooth;
+   
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    right: 0;
+    margin-top: 4%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.navbar {
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    width: 100%;
+    position:fixed;
+    top: 0;
+  
+  
+
+}
+.logo{
+    display: flex;
+    padding: 10px;
+    margin-left: 4rem;
+}
+.logo img{
+    width: 80px;
+    height: 70px;
+    border-radius: 50%;
+}
+.logo h1{
+    color:  #4EA685;
+    font-weight: 800;
+}
+.navbar .nav-links{
+    margin: 0 0 0 25rem;
+   
+  
+}
+.navbar .loginbtn{
+float:right;
+padding: 4px 10px;
+margin: 0 0 0 15rem;
+display: flex;
+
+
+}
+.loginbtn button{
+
+    width: 100px;
+    padding:8px;
+    font-size: 22px;
+    border:none;
+    background:#57B894;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 5px;
+
+}
+.loginbtn button:hover{
+   background: white;
+   color: black;
+   border: 2px solid #57B894;
+
+}
+.nav-links{
+    float:right;
+    margin: 0 0 0 0rem;
+    padding: 10px 20px;
+    width: 40;
+}
+.navbar a {
+    float:left;
+    display: block;
+    color: #757575;
+    text-align:right;
+    padding: 17px 25px;
+    text-decoration: none;
+   font-size: 26px;
+
+}
+.navbar a:hover {
+    color: #57B894;
+}
+
+/***************css of home page welcome page*****************/
+
+.hero{
+    height: 100vh;
+    background: linear-gradient(180deg,#e9faea 0%,#e1ffea22 60%);
+    background-image: url('./images/image2.jpg');
+    display: flex;
+    top:0;
+    width: 100%;
+}
+.hero-left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-left:100px;
+    line-height: 1.1;
+
+}
+.hero-left h2{
+    color: white;
+    font-size: 80px;
+    font-weight:600 ;
+}
+.hero-left p{
+    color: #f3ebeb;
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Times New Roman', Times, serif;
+}
+.hand-icon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.hand-icon img{
+    width: 105px;
+    border-radius: 50%;
+}
+.hero-right{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-right img{
+    border-radius: 10px;
+}
+

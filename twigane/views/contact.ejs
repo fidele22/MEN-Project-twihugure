@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css"  href="/userpage/contact.css">
+    <link rel="stylesheet" type="text/css"  href="/userpage/footer.css">
+
+</head>
+<body>
+    <!--navbar-->
+    <div class="navbar">
+        <div class="logo">
+            <img src="/images/images.jpeg" alt="">
+            <h1>Twigane</h1>
+        </div>
+        <div class="nav-links">
+            <h1>Hello!:<%= name %></h1>
+            <a href="/services">Services</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="loginbtn">
+            
+            <a href="/" ><button class="registe-btn">Logout</button></a>
+           </div>
+         
+    </div>
+    <!---------contact us page -->
+    <div class="contact" id="contact">
+        <div class="ctitle">
+            <h1>Tuvugishe</h1>
+            <h2>We’ve got everything you need <br />to launch and grow your driving career.</h2>
+        </div>
+      
+        <div class="contact-channel">
+            <div class="call">
+                <i class="fa fa-phone-square" aria-hidden="true" style="color: green;"></i>
+                <h1>Phone number</h1>
+                <p>MTN Rwanda</p>
+                <label for="">+250780698611</label>
+                <p>Airtel Rwanda</p>
+                <label for="">+250724790381</label>
+            </div>
+            <div class="email">
+                <i class="fa fa-envelope" aria-hidden="true" style="color: rgb(247, 129, 129);"></i>
+                <h1>Email</h1>
+                <p>Text me via this email address</p>
+                <label for="">fidelehirwa2@gmail.com</label>
+            </div>
+            <div class="whatsapp">
+                <i class="fa fa-whatsapp" aria-hidden="true" style="color: #63E6BE;"></i>
+                <h1>Whatsapp</h1>
+                <p>Text me on this number:</p>
+                <label for="">+250780698611</label>
+    
+            </div>
+            <div class="address">
+                <i class="fa fa-map-marker" aria-hidden="true" style="color: #58cdf7;"></i>
+                <h1>Address</h1>
+                <p>Kigali - RWANDA</p>
+                <label for="">Nyamirambo</label>
+            </div>
+        </div>
+        <hr />
+            <div class="direct-message">
+                <div class="contact-form">
+                    <h2>Direct message</h2>
+                    <form onSubmit={handleSubmit}>
+                        <input type="text" name="name" placeholder="Your Name" required />
+                        <input type="email" name="email" placeholder="Your Email" required />
+                        <textarea name="message" placeholder="Your Message" required ></textarea>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+<!--------------footer------------->
+        <div class='footer'>
+            <div class="footer-logo">
+                <img src="" alt="" />
+                <p>Twigane</p>
+            </div>
+            <ul class='footer-links'>
+                <li>Home</li>
+                <li>About us</li>
+                <li>Service</li>
+                <li>Contact us</li>
+            </ul>
+         <div class="footer-social-icon">
+            <div class="footer-icon-container">
+                <i class="fa fa-envelope" aria-hidden="true" style="color: yellowgreen;"></i>
+            </div>
+            <div class="footer-icon-container">
+                <i class="fa fa-facebook-square" aria-hidden="true" style="color: yellowgreen;"></i>
+            </div>
+            <div class="footer-icon-container">
+                <i class="fa fa-whatsapp" aria-hidden="true" style="color: yellowgreen;"></i>
+            </div>
+            <div class="footer-icon-container">
+                <i class="fa fa-linkedin-square" aria-hidden="true" style="color: yellowgreen;"></i>
+        
+            </div>
+            </div>
+         <div class="footer-copyright">
+            <hr />
+            <p>Copyright@2023 | All right reserved @Castro@</p>
+         </div>
+        </div>
+</body>
+</html>

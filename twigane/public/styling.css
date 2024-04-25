@@ -1,0 +1,348 @@
+:root {
+    --primary-color: #4EA685;
+    --secondary-color: #57B894;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #efefef;
+    --gray-2: #757575;
+
+    --facebook-color: #4267B2;
+    --google-color: #DB4437;
+    --twitter-color: #1DA1F2;
+    --insta-color: #E1306C;
+}
+
+/*******************about content styling**********************/
+
+.content{
+    width: 100%;
+    height:auto;
+    display: flex;
+    margin: auto;
+    padding: 0px 100px;
+    margin-bottom: 150px;
+    background: linear-gradient(180deg,#e9faea 0%,white 70%);
+}
+.title{
+    width: 100%;
+    background-color: white;
+    min-height: 15vh;
+    text-align: center;
+}
+.title h1{
+    padding: 100px 0px 20px;
+    font-size: 40px;
+    font-weight: 600;
+}
+.about-left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.about-left h1{
+    color: #171717;
+    font-size: 40px;
+    font-weight: 600;
+    padding: 20px;
+}
+.about-left p{
+    color: #757575;
+    line-height: 1.5em;
+    font-size: 26px;
+    font-family: 'Times New Roman', Times, serif;
+    padding: 10px 0px;
+    font-weight: 600;  
+}
+
+.about-left p span{
+    font-size: 30px;
+    padding: 30px 0px;
+    color:rgb(240, 193, 107)
+}
+.about-left h2{
+    padding: 30px 0px;
+}
+.about-left button{
+    width: 280px;
+    height:70px;
+    border-radius: 35px;
+    background: #4EA685;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: 1s ease;
+}
+.about-left button p{
+    color: wheat;
+    font-size: 30px;
+    
+}
+.about-left button:hover{
+    background-color: rgb(78, 160, 248);
+    
+}
+.about-right{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: 50px;
+    padding-top: 50px;
+  
+}
+/*images silding*/
+.slides{
+    text-align: center;
+    display: flex;
+    
+}
+.slide img{
+    border-radius: 50%;
+}
+/***********service css******************/
+
+.service{
+    background-image: url('./images/image2.jpg');
+    margin:0;
+}
+.offers{
+    width: 80%;
+    height: auto;
+    display: flex;
+    margin: auto;
+    padding: 0px 100px;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 150px;
+    background-color: white;
+}
+.stitle{
+    width: 100%;
+    min-height: 15vh;
+    text-align: center;
+   
+   
+}
+.stitle h1{
+    padding: 100px 0px 30px;
+    font-size: 50px;
+    color:white;
+    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.stitle h2{
+    font-size: 50px;
+    color: white;
+    font-weight: 500;
+    padding: 0px 0px 20px;
+}
+.service-box{
+    background-color: #edf1f5;
+    width: 25%;
+    padding: 30px;
+    margin: 20px 10px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+/*
+.dropup-text{
+    position: absolute;
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transition: 0.6s;
+    background: #5d5f61;
+    border: none;
+}
+.dropup-text:hover{
+    opacity: 0.9;
+}*/
+.offers .service1 p{
+    font-size: 22px;
+}
+.offers .service1 img{
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+}
+/***************contact page content css********************/
+
+*{
+    margin: 0;
+
+}
+.contact{
+    background-image: url('../photo/image2.jpg');
+    margin: 0;
+    height: auto;
+}
+.ctitle{
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+.ctitle h1{
+    color:black;
+    font-size: 50px;
+    padding: 100px 0px 20px;
+}
+.contact-channel{
+    width: 100%;
+    display: flex;
+
+}
+.contact-channel div{
+    background: linear-gradient(180deg,#c6f3c9 0%,white 70%);
+    width: 15%;
+    padding-left: 20px;
+    margin-left: 7rem;
+    min-height: 10vh;
+    border-radius: 10px;
+}
+.call,
+.email,
+.whatsapp,
+.address{
+    text-align: center;
+    padding: 16px;
+}
+.call i,
+.email i,
+.whatsapp i,
+.address i{
+    font-size: 100px;
+    padding:10px;
+}
+.call label,
+.email label,
+.whatsapp label,
+.address label{
+    color: rgb(69, 115, 223);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 20px;
+}
+.call p,
+.email p,
+.whatsapp p,
+.address p{
+    font-size: 22px;
+    color:#1f2938cc;
+    padding: 5px;
+}
+
+.direct-message{
+    background: white;
+    margin-top: -0.1%;
+   
+   
+   
+}
+/*.................form styling css...........................*/
+
+
+.contact-form {
+    max-width: 500px;
+    margin-left: 35%;
+    text-align: center;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: #00000066 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input,
+textarea {
+    width: 90%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contact-form textarea{
+    min-height: 20vh;
+}
+.contact-form button {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 26px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 1s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/*************** footer css*********************/
+
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: rgb(30, 29, 29);
+   
+ 
+}
+.footer-logo{
+display: flex;
+align-items: center;
+gap: 20px;
+}
+.footer-logo p{
+    color: #383838;
+    font-size: 46px;
+    font-weight: 700;
+}
+.footer-links{
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    color: white;
+    font-size: 20px;
+}
+.footer-links li{
+    cursor: pointer;
+}
+.footer-social-icon{
+    display: flex;
+    gap: 20px;
+}
+.footer-icon-container{
+    padding: 10px;
+    background:transparent;
+    border:none;
+    font-size: 36px;
+
+}
+.footer-copyright{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 20px;
+}
+.footer-copyright hr{
+    width: 80%;
+    border: none;
+    border-radius: 10px;
+    height: 3px;
+    background: #c7c7c7;
+}
