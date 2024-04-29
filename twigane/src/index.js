@@ -1,4 +1,6 @@
 const express = require('express');
+const session = require('express-session');
+const flash = require('connect-flash');
 const bcrypt = require ('bcrypt');
 const path = require('path');
 const { render, name } = require('ejs');
@@ -6,6 +8,16 @@ const collection = require("./config");
 
 
 const app= express();
+
+// used to display flash message on validating form
+
+app.use(express.urlencoded({ extended:false }));
+app.use(session({
+  secret: 'scret key',
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(flash());
 
 //use ejs as view engine 
 app.set('view engine', 'ejs');
@@ -19,8 +31,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 //function used to get template in views folder and rendering it on browser
-app.get("/",(req,res)=>{
-    res.render("homepage");
+app.get('/', (req, res) => {
+    res.render('homepage', { messages: req.flash() });
 });
 
 app.get("/services",(req,res)=>{
@@ -46,13 +58,15 @@ app.post("/signup", async (req, res) =>{
     const data ={
         name:req.body.username,
         telephone:req.body.telephone,
-        password:req.body.password
+        password:req.body.password,
+      
     }
-
+    
     // checking if user already exist in database
     const existinguser = await collection.findOne({name: data.name});
     if(existinguser){
-        res.send("user already exist");
+        req.flash('error', 'user already exist');
+        return  res.redirect('/')
     } 
     else{
             //password hashing / to encrypt password created to be in other character in database
@@ -64,21 +78,23 @@ app.post("/signup", async (req, res) =>{
         //send data into database
         const userdata = await collection.insertMany(data);  
         console.log(userdata) 
-        return res.send("kwiyandikisha byagenze neza!");
+        req.flash('success', 'create account successful');
+        return res.redirect('/')
         
     }
-   
 });
 
 //login function with data sent into database
 
-app.post("/login",async (req,res)=>{  //this /login is a name found on form in htm file as form action and 
+app.post("/login", async (req, res) => {
+    try {                                //this /login is a name found on form in htm file as form action and 
                                         //method post use here
 
-    try{
-        const checkdatails= await collection.findOne({name: req.body.username});
-        if(!checkdatails){
-            res.send("user not found")
+        const checkDetails = await collection.findOne({ name: req.body.username });
+        if (!checkDetails) {
+            req.flash('error', 'User not found');
+            return res.redirect('/')
+           
 
 
         }
@@ -86,23 +102,36 @@ app.post("/login",async (req,res)=>{  //this /login is a name found on form in h
         //comparing password entered and hashpassword those ones converted/ 
         //checking when you are loggin in
 
-        const passwordentered= await bcrypt.compare(req.body.password, checkdatails.password);
-        if(passwordentered){
+        const passwordEntered = await bcrypt.compare(req.body.password, checkDetails.password);
+        if (passwordEntered) {
             const name = req.body.username;
-            res.render("userhome", { name });   //direct your name on homepage you want to enter when you logging in
-             
-        }else{
-            res.send("wrong password")
+           // req.flash('success', 'Login successful');
+            return res.render("userhome", { name }); // Redirect to userhome and display your login name 
+        } else {
+            req.flash('error', 'Wrong password');
+            return res.redirect('/')
+            
         }
     }
-    catch{
-        res.send("wrong datails")
-
-    }
+   catch (err) {
+    console.error(err);
+    req.flash('error', 'An error occurred');
+     return res.redirect('/')
+    
+}
 })
-// displying template or pages on user dashboard
 
-
+// Route to fetch and display users on an EJS template
+app.get("/adim", async (req, res) => {
+  try {
+    // Fetch all users from MongoDB
+    const users = await collection.find().toArray();
+    res.render('adim', { users }); // Render the 'users.ejs' template with the fetched users
+  } catch (error) {
+    console.error('Error fetching users:', error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 // localhost port used to look output on browser
 const port= 5000;
 app.listen(port, ()=>{

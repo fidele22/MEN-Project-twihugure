@@ -93,12 +93,16 @@
 }
 /*images silding*/
 .slides{
+    width: 100%;
     text-align: center;
-    display: flex;
-    
+    display: flex;    
 }
 .slide img{
     border-radius: 50%;
+    padding: 0px;
+
+    
+    
 }
 /***********service css******************/
 
@@ -174,9 +178,11 @@
 
 }
 .contact{
-    background-image: url('../photo/image2.jpg');
+    background-image:blue;
     margin: 0;
     height: auto;
+    width: 100%;
+    margin: auto;
 }
 .ctitle{
     width: 100%;
@@ -189,17 +195,24 @@
     padding: 100px 0px 20px;
 }
 .contact-channel{
-    width: 100%;
+    width: 80%;
+    height: auto;
     display: flex;
+    margin: auto;
+    padding: 0px 100px;
+    border-radius: 10px 10px 0px 0px;
+    margin-bottom: 150px;
+    background-color: white;
 
 }
 .contact-channel div{
     background: linear-gradient(180deg,#c6f3c9 0%,white 70%);
-    width: 15%;
-    padding-left: 20px;
-    margin-left: 7rem;
-    min-height: 10vh;
+    width: 25%;
+    padding: 30px;
+    margin: 20px 10px;
+    text-align: center;
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
 }
 .call,
 .email,

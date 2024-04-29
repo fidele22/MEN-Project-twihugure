@@ -30,17 +30,18 @@
          
     </div>
    
-     <!-----------popup registration successful message---->
-    <div class="popup" id="popup">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <p>Thank you for registration!</p>
-    </div>
+   
+   
   <!-----------home body content---->
 
   <div class="backdrop-overlay"></div><!--used the backgroud shadow when login form is visible-->
   <div class='hero' id="home">
      <!--------------popup login and register form-->
     
+    
+   
+      
+   
         <div class="form-popup" id="login">
             <div class="close-btn">
                 <span><i class="fa fa-window-close" aria-hidden="true"></i></span>
@@ -49,19 +50,24 @@
             <div class="form-box login">
                
                 <h2>Login</h2>
-                    <form action="/login" method="post">
+                
+            
+                
+                  
+                    <form action="/login" method="post" id="loginform">
                         <div class='loginsignup-fields'>
-                            <label for="title">Username</label>
-                          <input type='text'name='username'  placeholder='Your Name'/>
+
+                          <label for="title">Username</label>
+                          <input type='text'name='username' id='login-username' placeholder='Your Name' />
+                          <div class="error-message" id="usernameErrormsg"></div>
+
                           <label for="title">Password</label>
-                          <input
-                            type='password'
-                            name='password'
-                            placeholder='Enter password'
-                          />
+                          <input type='password' name='password' id='login-password' placeholder='Enter password' />
+                          <div class="error-message" id="passwordErrormsg"></div>
                        
                         </div>
-                        <button type='submit'>login</button>
+                    
+                            <button type='submit' class="login-flash">login</button>
 
                         <div class="login-register">
                             <p>Don't  have an account <a href="#" class="register-link">Register</a></p>
@@ -70,37 +76,42 @@
                 
             </div>
            <!-----------register form-->
-           <div class="form-box register" >
+           <div class="form-box register">
             <h2>Register</h2>
-                <form action="/signup" method="post" id="registrationForm">
-                    <div class='loginsignup-fields'>
-                        <label for="title">Username</label>
-                      <input type='text'name='username'  placeholder='Your Name'/>
-                      <label for="title">Telephone number</label>
-                      <input type='text'name='telephone'  placeholder='telephone'/>
-
-                      <label for="title">Password</label>
-                      <input
-                        type='password'
-                        name='password'
-                        placeholder='Enter password'
-                      />
-                   
-                    </div>
-                    <button type='submit'>register</button>
-
-                    <div class="login-register">
-                        <p>Already have an account <a href="#" class="login-link">Login</a></p>
-                    </div>
-                  </form>
-
+            <div class="flash-messages">
+            </div>
+            <form action="/signup" method="post" id="registrationForm">
+                <div class='loginsignup-fields'>
+                    <label for="username">Username</label>
+                    <input type='text' name='username' id='username' placeholder='Your Name'  />
+                    <div class="error-message" id="usernameError"></div>
+                    
+                    <label for="telephone">Telephone number</label>
+                    <input type='text' name='telephone' id='telephone' placeholder='telephone'  />
+                    <div class="error-message" id="telephoneError"></div>
+                    
+                    <label for="password">Password</label>
+                    <input type='password' name='password' id='password' placeholder='Enter password'  />
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+                <button type='submit'>Register</button>
+                <div class="login-register">
+                    <p>Already have an account <a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
         </div>
         </div>
-       
-        
      
           <!-------------------home page-->
     <div class='hero-left'>
+        <div class="flash-messages">
+            <% if (messages.error) { %>
+                <div class="flash-message error"><%= messages.error %></div>
+              <% } %>
+              <% if (messages.success) { %>
+                <div class="flash-message success"><%= messages.success %></div>
+              <% } %>
+        </div>
         <h2>Welcome!</h2>
         <div>
             <div class='hand-icon'>
@@ -293,5 +304,6 @@
 
 <!------------importing outside javascript codes-->
 <script src="/login.js"></script>
+<script src="/formvalidation.js"></script>
 </body>
 </html>
