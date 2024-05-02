@@ -70,7 +70,7 @@ display: flex;
     padding:8px;
     font-size: 22px;
     border:none;
-    background:#57B894;
+    background:var(--insta-color);
     color: white;
     font-weight: 400;
     cursor: pointer;

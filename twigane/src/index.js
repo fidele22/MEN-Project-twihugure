@@ -46,10 +46,29 @@ app.get("/contact",(req,res)=>{
 app.get("/quizes",(req,res)=>{ // displaying page containg list of quizes
     res.render("quizes");
 });
- // displayin every quiz according to quiz number clicked 
+ // displaying every quiz according to quiz number clicked 
 app.get("/quiz1",(req,res)=>{ 
     res.render( "quizes/quiz-1");
 });
+
+
+// Route to fetch and display users on an EJS template
+app.get("/adim", (req, res) => {
+    collection.find().exec()
+        .then(clients => {
+            res.render("adim", {
+                title: "adim dashboard",
+                clients: clients,
+            });
+        })
+        .catch(err => {
+            res.json({ message: err.message });
+        });
+});
+
+app.get("/adim",(req,res)=>{
+    res.render("adim")
+})
 
 // register form with function helps to send data into database
 
@@ -97,8 +116,7 @@ app.post("/login", async (req, res) => {
            
 
 
-        }
-        
+        }       
         //comparing password entered and hashpassword those ones converted/ 
         //checking when you are loggin in
 
@@ -106,7 +124,7 @@ app.post("/login", async (req, res) => {
         if (passwordEntered) {
             const name = req.body.username;
            // req.flash('success', 'Login successful');
-            return res.render("userhome", { name }); // Redirect to userhome and display your login name 
+            return res.render("adim"); // Redirect to userhome and display your login name 
         } else {
             req.flash('error', 'Wrong password');
             return res.redirect('/')
@@ -121,17 +139,19 @@ app.post("/login", async (req, res) => {
 }
 })
 
-// Route to fetch and display users on an EJS template
-app.get("/adim", async (req, res) => {
-  try {
-    // Fetch all users from MongoDB
-    const users = await collection.find().toArray();
-    res.render('adim', { users }); // Render the 'users.ejs' template with the fetched users
-  } catch (error) {
-    console.error('Error fetching users:', error);
-    res.status(500).send('Internal Server Error');
-  }
+//deletin data row records from database and update UI
+app.get("/delete/:id", async (req, res) => {
+    const id = req.params.id;
+    try {
+        const result = await collection.findByIdAndDelete(id);
+        res.redirect("/adim");
+    } catch (err) {
+        res.json({ message: err.message });
+    }
 });
+
+
+
 // localhost port used to look output on browser
 const port= 5000;
 app.listen(port, ()=>{

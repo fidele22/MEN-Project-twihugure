@@ -6,7 +6,7 @@ const loginlink = document.querySelector('.login-link');
 const closeform = document.querySelector('.close-btn');
 
 showpopup.addEventListener("click", () => {
-    document.body.classList.add("show-popup");
+    document.body.classList.toggle("show-popup");
 });
 
 closeform.addEventListener("click", () => {
