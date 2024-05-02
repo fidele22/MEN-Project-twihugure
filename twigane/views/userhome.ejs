@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"  type="text/css"  href="/userpage/footer.css">
     <link rel="stylesheet"  type="text/css"  href="/userpage/stylingpage.css">
+
+  
 </head>
 <body>
      <!--navbar-->
@@ -22,7 +24,10 @@
         </div>
         <div class="loginbtn">
             
-            <a href="/" ><button class="registe-btn">Logout</button></a>
+          <form id="logoutForm" action="/logout" method="POST">
+            <button type="submit">Logout</button>
+          </form>
+          
            </div>
          
     </div>
@@ -107,5 +112,29 @@
     <p>Copyright@2023 | All right reserved @Castro@</p>
  </div>
 </div>
+<script>
+  document.getElementById('logoutForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch('/logout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({}) // Empty body since no data is needed for logout
+      });
+
+      if (response.ok) {
+        // Redirect to the home page or perform any other necessary actions
+        window.location.href = '/';
+      } else {
+        console.error('Logout failed');
+      }
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  });
+</script>
 </body>
 </html>

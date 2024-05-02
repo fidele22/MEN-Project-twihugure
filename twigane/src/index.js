@@ -35,13 +35,13 @@ app.get('/', (req, res) => {
     res.render('homepage', { messages: req.flash() });
 });
 
+
 app.get("/services",(req,res)=>{
-    const names = req.body.username;
     res.render("userhome"); 
 });
 app.get("/contact",(req,res)=>{
-    const names = req.body.username;
-    res.render("contact"); 
+    const name = req.body.username;
+    res.render("contact",{name}); 
 });
 app.get("/quizes",(req,res)=>{ // displaying page containg list of quizes
     res.render("quizes");
@@ -53,18 +53,18 @@ app.get("/quiz1",(req,res)=>{
 
 
 // Route to fetch and display users on an EJS template
-app.get("/adim", (req, res) => {
-    collection.find().exec()
-        .then(clients => {
-            res.render("adim", {
-                title: "adim dashboard",
-                clients: clients,
-            });
-        })
-        .catch(err => {
-            res.json({ message: err.message });
-        });
-});
+//app.get("/adim", (req, res) => {
+//    collection.find().exec()
+//        .then(clients => {
+//            res.render("adim", {
+//                title: "adim dashboard",
+//                clients: clients,
+//            });
+//        })
+//        .catch(err => {
+//            res.json({ message: err.message });
+//        });
+//});
 
 app.get("/adim",(req,res)=>{
     res.render("adim")
@@ -122,10 +122,30 @@ app.post("/login", async (req, res) => {
 
         const passwordEntered = await bcrypt.compare(req.body.password, checkDetails.password);
         if (passwordEntered) {
+
+            if(checkDetails.role === 'admin'){
+
+                 // If the user is an admin, render the admin dashboard
+                // start with fetching data //  to fetch from mongodb and display users on an EJS template
+                 collection.find({role:'client'}).exec()
+                 .then(clients => {
+                     res.render("adim", {
+                         title: "adim dashboard",
+                         clients: clients,
+                     });
+                 })
+                 .catch(err => {
+                     res.json({ message: err.message });
+                 });
+            }
+         else {
+            // If the user is a client, render the user homepage
             const name = req.body.username;
-           // req.flash('success', 'Login successful');
-            return res.render("adim"); // Redirect to userhome and display your login name 
-        } else {
+            return res.render("userhome", { name});
+        }
+            
+     } 
+     else {
             req.flash('error', 'Wrong password');
             return res.redirect('/')
             
@@ -138,8 +158,11 @@ app.post("/login", async (req, res) => {
     
 }
 })
+ app.post('/logout',(req,res)=>{
 
-//deletin data row records from database and update UI
+    res.redirect('/');
+ })
+//deletin data row records from database and update UI// here on admin dashboard
 app.get("/delete/:id", async (req, res) => {
     const id = req.params.id;
     try {

@@ -1,33 +1,41 @@
 const mongoose = require("mongoose");
 const connect = mongoose.connect("mongodb://localhost:27017/twigane");
 
-//check database connected or not
-
-connect.then(()=>{
-    console.log("database connected successful")
+// Check if the database is connected or not
+connect.then(() => {
+    console.log("Database connected successfully")
 })
-.catch(()=>{
-    console.log("database connection fail")
+.catch(() => {
+    console.log("Database connection failed")
 })
 
-//creation of database schema/database atribute/column which filled with data inserted.
-
-const loginschema= new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+// Creation of database schema/database attribute/column which is filled with data inserted.
+const loginSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
     },
-    telephone:{
-        type:Number,
-        required:true
+    telephone: {
+        type: Number,
+        required: true
     },
-    password:{
-        type:String,
-        required:true
+    password: {
+        type: String,
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ['admin', 'client'],
+        default: 'client'
+    },
+    created: {
+        type: Date,
+        required: true,
+        default: Date.now
     }
 });
-// create collection model
 
-const collection= new mongoose.model("clients",loginschema);
+// Create collection model
+const collection = mongoose.model("clients", loginSchema);
 
 module.exports = collection;
