@@ -36,13 +36,7 @@ app.get('/', (req, res) => {
 });
 
 
-app.get("/services",(req,res)=>{
-    res.render("userhome"); 
-});
-app.get("/contact",(req,res)=>{
-    const name = req.body.username;
-    res.render("contact",{name}); 
-});
+
 app.get("/quizes",(req,res)=>{ // displaying page containg list of quizes
     res.render("quizes");
 });
@@ -129,8 +123,8 @@ app.post("/login", async (req, res) => {
                 // start with fetching data //  to fetch from mongodb and display users on an EJS template
                  collection.find({role:'client'}).exec()
                  .then(clients => {
-                     res.render("adim", {
-                         title: "adim dashboard",
+                     res.render("Admin/adim", {
+                         title: "admin dashboard",
                          clients: clients,
                      });
                  })
@@ -158,6 +152,18 @@ app.post("/login", async (req, res) => {
     
 }
 })
+
+app.get("/services",(req,res)=>{
+    const name = req.body.username;
+    res.render("userhome",{name}); 
+});
+app.get("/contact",(req,res)=>{
+    const name = req.body.username;
+    res.render("contact",{name}); 
+});
+
+
+
  app.post('/logout',(req,res)=>{
 
     res.redirect('/');

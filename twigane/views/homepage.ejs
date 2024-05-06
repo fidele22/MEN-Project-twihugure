@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" type="text/css" href="/navigation.css">
-    <link rel="stylesheet"  type="text/css"    href="/styling.css">
+    <link rel="stylesheet"  type="text/css"    href="/homepage.css">
     <link rel="stylesheet"  type="text/css"    href="/loginform.css">
 </head>
 <body>
@@ -103,6 +103,7 @@
         </div>
      
           <!-------------------home page-->
+          <!-----------------flash messages feedback for login and registration ------->
     <div class='hero-left'>
         <div class="flash-messages">
             <% if (messages.error) { %>
@@ -112,6 +113,7 @@
                 <div class="flash-message success"><%= messages.success %></div>
               <% } %>
         </div>
+
         <h2>Welcome!</h2>
         <div>
             <div class='hand-icon'>
@@ -135,28 +137,29 @@
     </div>
 <div class='content'>
   <div class="about-left">
- <h1> what we do!</h1>
+ <h1> What we do!</h1>
 
  <p>Welcome to our comprehensive course on road rules website,We are excited that you are here! our website 
  designed to help you prepare effectively for the official police exam. Our website offers a range of resources
   and tools to enhance your understanding of road rules and increase your chances of success on the exam.<br/>
   
   <span>key features</span><br>
-  Interactive Quizzes: Test your knowledge with interactive quizzes that cover a wide range of road rules topics.</li>
-  Practice Tests: Prepare for the official exam with our practice tests, designed to simulate the exam experience.</li>
-  Study Materials: Access comprehensive study materials, including guides, videos, and articles, to deepen your understanding of road rules.</li>
-  Expert Guidance: Benefit from expert guidance from experienced instructors who are dedicated to helping you succeed.</li>
+  <ul>
+  <li>Interactive Quizzes: Test your knowledge with interactive quizzes that cover a wide range of road rules topics.</li>
+  <li>Practice Tests: Prepare for the official exam with our practice tests, designed to simulate the exam experience.</li>
+  <li>Study Materials: Access comprehensive study materials, including guides, videos, and articles, to deepen your understanding of road rules.</li>
+  <li> Expert Guidance: Benefit from expert guidance from experienced instructors who are dedicated to helping you succeed.</li>
   </ul><br />
 
-  <span>By taking our course and practice you will:</span><br>
+  <h3>By taking our course and practice you will</h3>
   
-
-        Gain a thorough understanding of road rules and regulations.
-        Improve your exam readiness and confidence.
-        Increase your chances of passing the official police exam.
-        An addition we assisst you To register as a candidate for the official police exam whenever you want!
+     <ul>
+        <li>Gain a thorough understanding of road rules and regulations.</li>
+       <li>Improve your exam readiness and confidence.</li> 
+       <li>Increase your chances of passing the official police exam.</li> 
+       <li>An addition we assisst you To register as a candidate for the official police exam whenever you want!</li> 
    
-         
+    </ul>  
 
  <h2><span>Simply complete our registration form. Once registered, you will have access to all our course materials and resources.</span></h2>
 
@@ -177,7 +180,7 @@
         </div>
         
     </div>
- 
+ </div>
   </div>
   </div>
 </div>
