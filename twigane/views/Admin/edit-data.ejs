@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <link rel="stylesheet"   type="text/css"     href="/admin/editForm.css">
+</head>
+<body>
+    <div class="form-box editandupdate">
+        <div class="edit-title">
+            <h2>Edit and Update</h2>
+        </div>
+       
+        <div class="flash-messages">
+        </div>
+        <form action="/update/<%= user._id %>" method="post" id="registrationForm">
+            <div class='loginsignup-fields'>
+                <label for="username">Username</label>
+                <input type='text' name='username' id='username' value="<%= user.name %> "  />
+                <div class="error-message" id="usernameError"></div>
+                
+                <label for="telephone">Telephone number</label>
+                <input type='text' name='telephone' id='telephone' value="<%= user.telephone %> " />
+                <div class="error-message" id="telephoneError"></div>
+                
+                <label for="status">Payment status</label>
+                <select id="hasPaid" name="hasPaid">
+                    <option value="true" <%= user.hasPaid ? 'selected' : '' %>>Paid</option>
+                    <option value="false" <%= !user.hasPaid ? 'selected' : '' %>>Not Paid</option>
+                </select>
+                <div class="error-message" id="passwordError"></div> 
+            </div>
+            <button type='submit'>Update user</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

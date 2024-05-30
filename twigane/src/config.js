@@ -23,6 +23,10 @@ const loginSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    hasPaid: { 
+        type: Boolean, 
+        default:false
+    },
     role: {
         type: String,
         enum: ['admin', 'client'],

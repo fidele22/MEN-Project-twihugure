@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Required</title>
+    <style>
+        .popup {
+            display: block;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 1px solid black;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup">
+        <p>You need to pay the fee to access this content.</p>
+        <button onclick="window.location.href='/pay'">Go to Payment Page</button>
+    </div>
+    <script>
+        // Show an alert message on page load
+        window.onload = function() {
+            alert('You need to pay the fee to access this content.');
+        };
+    </script>
+</body>
+</html>
