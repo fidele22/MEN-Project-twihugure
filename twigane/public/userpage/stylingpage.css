@@ -11,98 +11,6 @@
     --twitter-color: #1DA1F2;
     --insta-color: #E1306C;
 }
-/*****navbar*****/
-html{
-    scroll-behavior: smooth;
-   
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    right: 0;
-    margin-top: 4%;
-    overflow: scroll;
-    overflow-x: hidden;
-}
-.navbar {
-    background-color: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    display: flex;
-    width: 100%;
-    position:fixed;
-    top: 0;
-  
-  
-
-}
-.logo{
-    display: flex;
-    padding: 10px;
-    margin-left: 4rem;
-}
-.logo img{
-    width: 80px;
-    height: 70px;
-    border-radius: 50%;
-}
-.logo h1{
-    color:  #4EA685;
-    font-weight: 800;
-}
-.navbar .nav-links{
-    margin: 0 0 0 25rem;
-   
-  
-}
-.navbar .loginbtn{
-float:right;
-position: absolute;
-right: 0;
-padding: 40px 30px;
-display: flex;
-
-
-}
-.loginbtn button{
-
-    width: 100px;
-    padding:8px;
-    font-size: 22px;
-    border:none;
-    background:var(--insta-color);
-    color: white;
-    font-weight: 400;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: 2s ease;
-
-}
-.loginbtn button:hover{
-   background: white;
-   color: black;
-   border: 2px solid #57B894;
-
-}
-.nav-links{
-    float:right;
-    margin: 0 0 0 0rem;
-    padding: 10px 20px;
-    width: 40;
-}
-.navbar a {
-    float:left;
-    display: block;
-    color: #757575;
-    text-align:right;
-    padding: 17px 25px;
-    text-decoration: none;
-    font-size: 26px;
-
-}
-.navbar a:hover {
-    color: #57B894;
-}
 
 /*** service page********/
 
@@ -125,8 +33,10 @@ display: flex;
 }
 .stitle{
     width: 100%;
-    min-height: 15vh;
+    background-image: url('../images/imyitozo.jpg');
+    min-height: 20vh;
     text-align: center;
+    background-color: #17a2b8;
    
    
 }
@@ -167,4 +77,42 @@ display: flex;
 .offers .service1 p{
     font-size: 25px;
     color:rgb(3, 25, 51)
+}
+
+/***************************popup pay warning message********************/
+.pay-warning{
+    background: linear-gradient(180deg,#e9faea 0%,white 70%);
+    width: 400px;
+    height:auto;
+    margin: auto;
+    background:white;
+    padding: 30px 60px;
+    position: fixed;
+    top: 20%;
+    left: 45%;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 7px;
+    justify-content:center;
+    align-items: center;
+    transition:height 1s;
+    transform: translate(-40%,-100%);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    
+}
+.pay-warning p{
+    font-size: 30px;
+    color: #494748;
+}
+.pay-warning i{
+ text-align: center;
+ font-size: 100px;
+ color:red;
+ padding: 5px 0px 0px 80px;
+}
+.show-popup .pay-warning{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-40%, -40%);
+    transition: transform 0.7s ease, opacity 0.1s;
 }

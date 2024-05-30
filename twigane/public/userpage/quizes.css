@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    background: #38445b;
+    background-image: url('../images/bgrimage.jpeg');
 }
 .app{
     background: #fff;
@@ -76,3 +76,6 @@ body{
  .incorrect{
     background: rgb(242, 137, 137);
  }
+
+
+ 

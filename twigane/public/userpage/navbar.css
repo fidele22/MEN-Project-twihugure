@@ -25,7 +25,7 @@ body {
     overflow-x: hidden;
 }
 .navbar {
-    background-color: #ffffff;
+    background-color: #17a2b8;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     width: 100%;
@@ -92,7 +92,7 @@ display: flex;
 .navbar a {
     float:left;
     display: block;
-    color: #757575;
+    color: white;
     text-align:right;
     padding: 17px 25px;
     text-decoration: none;

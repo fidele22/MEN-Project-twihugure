@@ -241,9 +241,10 @@ app.use(async (req, res, next) => {
 const checkPaymentStatus = (req, res, next) => {
     if (req.user && req.user.hasPaid) {
         next(); // User has paid, proceed to the next middleware or route handler
-    } else {
-        res.render('payment'); // Render a page with the popup message
-    }
+   }
+   //else {
+  //      res.render('payment'); // Render a page with the popup message
+  //  }
 };
 
 // Route for free  content

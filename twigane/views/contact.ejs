@@ -8,26 +8,12 @@
 
     <link rel="stylesheet" type="text/css"  href="/userpage/contact.css">
     <link rel="stylesheet" type="text/css"  href="/userpage/footer.css">
+    <link rel="stylesheet"  type="text/css"  href="/userpage/navbar.css">
 
 </head>
 <body>
     <!--navbar-->
-    <div class="navbar">
-        <div class="logo">
-            <img src="/images/images.jpeg" alt="">
-            <h1>Twigane</h1>
-        </div>
-        <div class="nav-links">
-            <h1>Hello!:<%= name %></h1>
-            <a href="/services">Services</a>
-            <a href="#contact">Contact</a>
-        </div>
-        <div class="loginbtn">
-            
-            <a href="/" ><button class="registe-btn">Logout</button></a>
-           </div>
-         
-    </div>
+    <%- include('navigationbar/navbar') %>
     <!---------contact us page -->
     <div class="contact" id="contact">
         <div class="ctitle">

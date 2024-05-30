@@ -8,36 +8,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"  type="text/css"  href="/userpage/footer.css">
     <link rel="stylesheet"  type="text/css"  href="/userpage/stylingpage.css">
+    <link rel="stylesheet"  type="text/css"  href="/userpage/navbar.css">
 </head>
 <body>
-     <!--navbar-->
-     <div class="navbar">
-        <div class="logo">
-            <img src="/images/images.jpeg" alt="">
-            <h1>Twigane</h1>
-        </div>
-        <div class="nav-links">
-            <h1>Hello!:</h1>
-            <a href="/services">Services</a>
-            <a href="/contact">Contact</a>
-        </div>
-        <div class="loginbtn">
-            
-            <a href="/" ><button class="registe-btn">Logout</button></a>
-           </div>
-         
-    </div>
-<!---------------------------------------->
-    <div class="popup">
-      <p>You need to pay the fee to access this content.</p>
-      <button onclick="window.location.href='/pay'">Go to Payment Page</button>
-  </div>
+  <!--------------navigation bar-------------------------->
+  <%- include('navigationbar/navbar') %>
+
+ 
  <!---------------service-->
     <div class="service" id="service">
+     
         <div class="stitle">
             <h1>Hello there!</h1>
             <h2>We’ve got everything you need <br />to launch and grow your driving career.</h2>
         </div>
+        <div class="pay-warning">
+
+          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+          <p>You need to pay the fee to access this content.</p>
+          <button onclick="window.location.href='/pay'">Go to Payment Page</button>
+      </div>
       <div class='offers'>
           <div class="first-line">
 
@@ -49,7 +39,7 @@
           </div>
            </a>
 
-          <a href="/quiz2"><div class='service1'>
+          <a href="/quiz2"><div class='service1  warning-btn'>
           <img src="/images/service2.png" alt="" />
             <p>quiz 2</p>
             <p>Fee required</p>
@@ -126,7 +116,29 @@
     <p>Copyright@2023 | All right reserved @Castro@</p>
  </div>
 </div>
-</body>
-</html>
+<script>
+const showpopup = document.querySelector('.warning-btn');
+const form = document.querySelector('.pay-warning');
+const flashmessage =document.querySelector('.login-flash');
+
+const closeform = document.querySelector('.close-btn');
+
+showpopup.addEventListener("click", () => {
+    document.body.classList.toggle("show-popup");
+});
+
+closeform.addEventListener("click", () => {
+    document.body.classList.remove("show-popup");
+});
+
+// display flash message for login and registering credentials
+
+flashmessage.addEventListener('click',()=>{
+
+    document.body.classList.add('show-flash-message');
+});
+
+
+</script>
 </body>
 </html>
